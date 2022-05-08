@@ -1,12 +1,10 @@
-var express = require('express'),
-    app = express(),
+const express = require('express'),
     port = process.env.PORT || 3000;
 
-const {TwitterClient} = require('twitter-api-client');
-const config = require('./config'); 
+//setup app & its routes
+const app = express();
+const routes = require('./src/routes/index.route');
+app.use(routes);
 
-
-const twitterClient = new TwitterClient(config);
-
-
+//start http server
 app.listen(port);
